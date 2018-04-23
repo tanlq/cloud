@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.blomini</groupId>
+	<artifactId>blomni-cloud-restaurant</artifactId>
+	<version>1.0.0</version>
+	<name>blomni-cloud-restaurant</name>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-parent</artifactId>
+	    <version>2.0.0.M2</version>
+	</parent>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<!-- <version>Brixton.RELEASE</version> -->
+				 <version>Finchley.M2</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<properties>
+		<start-class>com.blomni.o2o.openPlatform.OpenPlatformApplication</start-class>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<maven.resources.overwrite>true</maven.resources.overwrite> 
+		<!-- maven方式跳过maven test, 等同$ mvn package -Dmaven.test.skip=true -->
+    	<!-- <maven.test.skip>true</maven.test.skip> -->
+    	<!-- surefire plugin方式跳过maven test， 等同$ mvn package -DskipTests -->
+    	<skipTests>true</skipTests>
+    	<!-- <tomcat.version>8.0.33</tomcat.version> -->
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		 <dependency>
+        	<groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-cache</artifactId>
+	    </dependency>
+	    <dependency>
+        	<groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-data-redis</artifactId>
+	    </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		
+		<dependency>  
+            <groupId>org.springframework.boot</groupId>  
+            <artifactId>spring-boot-starter-activemq</artifactId>  
+        </dependency> 
+		
+		<dependency>
+			<groupId>org.jolokia</groupId>
+			<artifactId>jolokia-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>cn.jpush.api</groupId>
+		    <artifactId>jpush-client</artifactId>
+		    <version>3.2.11</version>
+		</dependency>
+		 <!-- <dependency>
+		    <groupId>javax.jms</groupId>
+		    <artifactId>javax.jms-api</artifactId>
+		    <version>2.0.1</version>
+		</dependency>  -->
+		
+		<!-- ibm mq  begin-->
+
+		<!-- <dependency>
+			<groupId>javax.jms</groupId>
+			<artifactId>jms</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+				<groupId>com.ibm</groupId>
+				<artifactId>ibm-mq</artifactId>
+				<version>7.5.0.3</version>
+			</dependency>
+			<dependency>
+				<groupId>com.ibm</groupId>
+				<artifactId>ibm-mqjms</artifactId>
+				<version>7.5.0.3</version>
+			</dependency>
+			<dependency>
+				<groupId>com.ibm</groupId>
+				<artifactId>ibm-mq-jmqi</artifactId>
+				<version>7.5.0.3</version>
+			</dependency>
+			<dependency>
+				<groupId>com.ibm</groupId>
+				<artifactId>ibm-dhbcore</artifactId>
+				<version>7.5.0.0</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.resource</groupId>
+				<artifactId>connector</artifactId>
+				<version>1.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.ibm</groupId>
+				<artifactId>ibm-mq-commonservices</artifactId>
+				<version>7.5.0.3 </version>
+			</dependency>
+			<dependency>
+				<groupId>com.ibm</groupId>
+				<artifactId>ibm-mq-headers</artifactId>
+				<version>7.5.0.3</version>
+			</dependency> -->
+		<!-- ibm mq  end-->
+		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>6.0.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.2.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>tk.mybatis</groupId>
+			<artifactId>mapper</artifactId>
+			<version>3.3.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- 服务注册所需环境 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+		 <dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>4.1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- ================================================= -->
+		 <dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<!-- <version>1.0.18</version> -->
+			<version>1.0.29</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.alibaba</groupId>
+					<artifactId>jconsole</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.alibaba</groupId>
+					<artifactId>tools</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency> 
+
+		 <dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.6</version>
+		</dependency>
+		<!-- GENERAL Apache Common Utils begin -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<!-- <version>1.8.3</version> -->
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<!-- <version>1.9</version> -->
+		</dependency>
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<!-- <version>1.9</version> -->
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<!-- <version>3.2.1</version> -->
+		</dependency>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<!-- <version>3.3.2</version> -->
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<!-- <version>1.1.3</version> -->
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging-api</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-validator</groupId>
+			<artifactId>commons-validator</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.10</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<!-- <version>1.6</version> -->
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-pool2</artifactId>
+			<!-- <version>2.4.2</version> -->
+		</dependency>
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<!-- <version>2.1</version> -->
+		</dependency>
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+
+		 <dependency>
+		    <groupId>dom4j</groupId>
+		    <artifactId>dom4j</artifactId>
+		    <!-- <version>1.6.1</version> -->
+		</dependency>
+		
+	    
+		<!-- ================================================= -->
+	</dependencies>
+	<!-- 第二种打包方式  包含lib-->
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<profileActive>dev</profileActive>
+			</properties>
+		</profile>
+		<profile>
+			<id>sit</id>
+			<properties>
+				<profileActive>sit</profileActive>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>pre</id>
+			<properties>
+				<profileActive>pre</profileActive>
+			</properties>
+		</profile>
+		<profile>
+			<id>prd</id>
+			<properties>
+				<profileActive>prd</profileActive>
+			</properties>
+		</profile>
+	</profiles>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-resources-props</id>
+						<!-- 在default生命周期的 validate阶段就执行resources插件的copy-resources目标 -->
+						<phase>validate</phase>
+						<goals>
+		                	<goal>copy-resources</goal>
+		                </goals>
+		                <configuration>
+		                	<!-- 指定resources插件处理资源文件到哪个目录下 -->
+                			<outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                			<!--  也可以用下面这样的方式（指定相对url的方式指定outputDirectory）
+                			<outputDirectory>target/classes</outputDirectory>
+                			 -->
+			                <!-- 待处理的资源定义 -->
+			                <resources>
+			                  <resource>
+			                    <!-- 指定resources插件处理哪个目录下的资源文件 -->
+			                    <directory>src/main/resources/env/${profileActive}</directory>
+			                    <filtering>true</filtering>
+			                  </resource>
+			                  <resource>                	
+			                    <directory>src/main/resources/mapper/*.xml</directory>
+			                    <filtering>true</filtering>
+			                  </resource>
+			                </resources>
+		              </configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<excludes>
+					<exclude>/env/dev/bootstrap.properties</exclude>
+					<exclude>/env/sit/bootstrap.properties</exclude>
+					<exclude>/env/prd/bootstrap.properties</exclude>
+					<exclude>/env/pre/bootstrap.properties</exclude>
+					<exclude>bootstrap.properties</exclude>
+				</excludes>  
+			</resource>
+		</resources>
+	</build>
+
+</project>

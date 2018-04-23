@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blomni.o2o.order.mapper.CloudCartInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.blomni.o2o.openPlatform.entity.CloudCartInfo" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="MERCHANT_ID" property="merchantId" jdbcType="VARCHAR" />
+    <result column="STORE_CODE" property="storeCode" jdbcType="VARCHAR" />
+    <result column="STORE_TYPE" property="storeType" jdbcType="VARCHAR" />
+    <result column="CART_STATE" property="cartState" jdbcType="CHAR" />
+    <result column="MEMBER_ID" property="memberId" jdbcType="VARCHAR" />
+    <result column="UPDATE_BY" property="updateBy" jdbcType="VARCHAR" />
+    <result column="UPDATE_DATE" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="CREATE_BY" property="createBy" jdbcType="VARCHAR" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="DEL_FLAG" property="delFlag" jdbcType="CHAR" />
+    <result column="SPARE1" property="spare1" jdbcType="VARCHAR" />
+    <result column="SPARE2" property="spare2" jdbcType="VARCHAR" />
+    <result column="SPARE3" property="spare3" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    ID, MERCHANT_ID,STORE_CODE, STORE_TYPE, CART_STATE, MEMBER_ID, UPDATE_BY, UPDATE_DATE, CREATE_BY, CREATE_DATE, 
+    DEL_FLAG, SPARE1, SPARE2, SPARE3
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CLOUD_CART_INFO
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CLOUD_CART_INFO
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" parameterType="com.blomni.o2o.openPlatform.entity.CloudCartInfo" >
+    insert into CLOUD_CART_INFO (ID, MERCHANT_ID, STORE_CODE, 
+      STORE_TYPE,CART_STATE, 
+      MEMBER_ID, UPDATE_BY, UPDATE_DATE, 
+      CREATE_BY, CREATE_DATE, DEL_FLAG, 
+      SPARE1, SPARE2, SPARE3
+      )
+    values (#{id,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, #{storeCode,jdbcType=VARCHAR}, 
+      #{storeType,jdbcType=VARCHAR},#{cartState,jdbcType=CHAR}, 
+      #{memberId,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=CHAR}, 
+      #{spare1,jdbcType=VARCHAR}, #{spare2,jdbcType=VARCHAR}, #{spare3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.blomni.o2o.openPlatform.entity.CloudCartInfo" >
+    insert into CLOUD_CART_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="merchantId != null" >
+        MERCHANT_ID,
+      </if>
+      <if test="storeCode != null" >
+        STORE_CODE,
+      </if>
+      <if test="storeType != null" >
+        STORE_TYPE,
+      </if>
+      <if test="cartState != null" >
+        CART_STATE,
+      </if>
+      <if test="memberId != null" >
+        MEMBER_ID,
+      </if>
+      <if test="updateBy != null" >
+        UPDATE_BY,
+      </if>
+      <if test="updateDate != null" >
+        UPDATE_DATE,
+      </if>
+      <if test="createBy != null" >
+        CREATE_BY,
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE,
+      </if>
+      <if test="delFlag != null" >
+        DEL_FLAG,
+      </if>
+      <if test="spare1 != null" >
+        SPARE1,
+      </if>
+      <if test="spare2 != null" >
+        SPARE2,
+      </if>
+      <if test="spare3 != null" >
+        SPARE3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null" >
+        #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="storeCode != null" >
+        #{storeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="storeType != null" >
+        #{storeType,jdbcType=VARCHAR},
+      </if>
+      <if test="cartState != null" >
+        #{cartState,jdbcType=CHAR},
+      </if>
+      <if test="memberId != null" >
+        #{memberId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="spare1 != null" >
+        #{spare1,jdbcType=VARCHAR},
+      </if>
+      <if test="spare2 != null" >
+        #{spare2,jdbcType=VARCHAR},
+      </if>
+      <if test="spare3 != null" >
+        #{spare3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.blomni.o2o.openPlatform.entity.CloudCartInfo" >
+    update CLOUD_CART_INFO
+    <set >
+      <if test="merchantId != null" >
+        MERCHANT_ID = #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="storeCode != null" >
+        STORE_CODE = #{storeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="storeType != null" >
+        STORE_TYPE = #{storeType,jdbcType=VARCHAR},
+      </if>
+      <if test="cartState != null" >
+        CART_STATE = #{cartState,jdbcType=CHAR},
+      </if>
+      <if test="memberId != null" >
+        MEMBER_ID = #{memberId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null" >
+        UPDATE_BY = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null" >
+        CREATE_BY = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        DEL_FLAG = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="spare1 != null" >
+        SPARE1 = #{spare1,jdbcType=VARCHAR},
+      </if>
+      <if test="spare2 != null" >
+        SPARE2 = #{spare2,jdbcType=VARCHAR},
+      </if>
+      <if test="spare3 != null" >
+        SPARE3 = #{spare3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+
+</mapper>
