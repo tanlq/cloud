@@ -1,6 +1,0 @@
-#=======================================#
-#=== blomni-cloud-restaurant cinfig =====#
-#=======================================#
-mysqldb.datasource.url=jdbc:mysql://10.201.129.70:3306/order_dev?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
-mysqldb.datasource.username=root
-mysqldb.datasource.password=123456
